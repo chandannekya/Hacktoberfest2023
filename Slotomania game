@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class SlotMachine {
+    private List<String> symbols;
+
+    public SlotMachine(List<String> symbols) {
+        this.symbols = symbols;
+    }
+
+    public List<String> spin() {
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            int randomIndex = (int) (Math.random() * symbols.size());
+            result.add(symbols.get(randomIndex));
+        }
+        return result;
+    }
+}
+
+public class SlotomaniaGame {
+    public static void main(String[] args) {
+        List<String> symbols = new ArrayList<>();
+        symbols.add("Cherry");
+        symbols.add("Lemon");
+        symbols.add("Orange");
+        symbols.add("Plum");
+        symbols.add("Bar");
+        symbols.add("Seven");
+
+        SlotMachine slotMachine = new SlotMachine(symbols);
+
+        // Spin the slot machine
+        List<String> spinResult = slotMachine.spin();
+
+        // Display the result
+        System.out.println("Spin result: " + spinResult);
+    }
+}
